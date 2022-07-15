@@ -12,7 +12,7 @@ function Letter({ individualLetter }) {
     color = "letter";
   }
   //   display individual letter
-  return <div className={color}>{individualLetter.letter}</div>;
+  return <div className={color}>{individualLetter.letter.toUpperCase()}</div>;
 }
 
 export default Letter;
