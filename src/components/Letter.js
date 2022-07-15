@@ -11,6 +11,7 @@ function Letter({ individualLetter }) {
   } else {
     color = "letter";
   }
+  //   display individual letter
   return <div className={color}>{individualLetter.letter}</div>;
 }
 
