@@ -9,6 +9,7 @@ function Main() {
   const [display, setDisplay] = useState([]);
   const [remaining, setRemaining] = useState(6);
   const [match, setMatch] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
   //   fetch the word of the day
   useEffect(() => {
@@ -47,8 +48,11 @@ function Main() {
     // if guessed word is valid and there are guesses remamining...
     if (isValid && remaining > 0) {
       setGuess("");
-      setDisplay((prevDisplay) => [...prevDisplay, guess]);
+      setDisplay((prevDisplay) => [...prevDisplay, guess.toLowerCase()]);
       setRemaining((prevRemaining) => prevRemaining - 1);
+      setPlaying(true);
+    } else if (match || remaining < 1) {
+      setPlaying(false);
     }
   }
 
@@ -77,7 +81,6 @@ function Main() {
           <History key={item} submittedWord={item} word={word} />
         ))}
       </div>
-      {/* <History display={display} match={match} /> */}
     </div>
   );
 }
