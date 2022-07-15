@@ -44,7 +44,7 @@ function Main() {
     ).then((res) => {
       return res.json();
     });
-
+    // if guessed word is valid and there are guesses remamining...
     if (isValid && remaining > 0) {
       setGuess("");
       setDisplay((prevDisplay) => [...prevDisplay, guess]);
@@ -71,6 +71,7 @@ function Main() {
         display={display}
         match={match}
       />
+      {/* map through each word in display */}
       <div className="container">
         {display.map((item) => (
           <History key={item} submittedWord={item} word={word} />
